@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Starting to build weather-api docker image..'
+                echo 'Starting to build weather-api docker image...'
                 dir ("weather-api"){
                     sh 'docker build -t localhost:8082/repository/docker/weather-api:${tag} .'
                     sh 'docker login -u admin -p admin http://localhost:8082'
