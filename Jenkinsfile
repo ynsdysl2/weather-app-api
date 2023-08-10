@@ -13,6 +13,8 @@ pipeline {
                     sh 'docker build -t localhost:8082/repository/docker/weather-api:${tag} .'
                     sh 'docker login -u admin -p admin http://localhost:8082'
                     sh 'docker image push localhost:8082/repository/docker/weather-api:${tag}'
+                    sh 'docker tag localhost:8082/repository/docker/weather-api:${tag} localhost:8082/repository/docker/weather-api:latest'
+                    sh 'docker image push localhost:8082/repository/docker/weather-api:latest'
                 }
             }
         }
