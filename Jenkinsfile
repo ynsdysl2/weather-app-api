@@ -15,6 +15,7 @@ pipeline {
                     sh 'docker image push localhost:8082/repository/docker/weather-api:${tag}'
                     sh 'docker tag localhost:8082/repository/docker/weather-api:${tag} localhost:8082/repository/docker/weather-api:latest'
                     sh 'docker image push localhost:8082/repository/docker/weather-api:latest'
+                    sh 'docker system prune -af'
                 }
             }
         }
