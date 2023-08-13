@@ -13,6 +13,7 @@ pipeline {
                     sh 'docker build -t localhost:8082/repository/docker/weather-api:${tag} .'
                     sh 'docker login -u CHANGEME -p CHANGEME http://localhost:8082'
                     sh 'docker image push localhost:8082/repository/docker/weather-api:${tag}'
+                    sh 'docker system prune -af'
                     
                 }
             }
@@ -25,7 +26,6 @@ pipeline {
                     sh 'sudo kubectl apply -f deployment.yaml'
                     sh 'sudo kubectl apply -f service.yaml'
                     sh 'sudo kubectl apply -f ingress.yaml'
-                    sh 'docker system prune -af'
                 }
             }
         }
