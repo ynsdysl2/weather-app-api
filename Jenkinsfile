@@ -11,7 +11,7 @@ pipeline {
                 echo 'Starting to build weather-api docker image...'
                 dir ("weather-api"){
                     sh 'docker build -t localhost:8082/repository/docker/weather-api:${tag} .'
-                    sh 'docker login -u CHANGEME -p CHANGEME http://localhost:8082'
+                    sh 'docker login -u admin -p admin http://localhost:8082'
                     sh 'docker image push localhost:8082/repository/docker/weather-api:${tag}'
                     sh 'docker system prune -af'
                     
