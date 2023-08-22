@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: weather-app-api
-        image: CHANGEME/repository/docker/weather-api:TAG
+        image: docker-wa.duckdns.org/repository/docker/weather-api:TAG
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
